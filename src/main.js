@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store/index'
 import router from './router/index'
-import Vant from 'vant'
+import Vant,{Lazyload} from 'vant'
 import './assets/reset.min.css'
 import 'vant/lib/index.css'
 import 'amfe-flexible'
@@ -12,6 +12,9 @@ handleMaxWidth()
 window.addEventListener('resize',handleMaxWidth)
 // 导入API
 const app = createApp(App)
+app.use(Lazyload,{
+  lazyComponent: true
+})
 app.use(Vant)
 app.use(store)
 app.use(router)
